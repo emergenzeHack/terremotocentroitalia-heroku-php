@@ -18,50 +18,71 @@
     <meta name="theme-color" content="#4caf50">
     <meta property="og:title" content="Contatti terremoto"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://terremotocentroitalia.herokuapp.com/segnalazioni/contatti"/>
-    <meta property="og:image" content="https://terremotocentroitalia.herokuapp.com/segnalazioni/images/logo.png"/>
+    <meta property="og:url" content="https://terremoto.francescopinzauti.com/contatti"/>
+    <meta property="og:image" content="https://terremoto.francescopinzauti.com/images/logo.png"/>
     <meta property="og:site_name" content="Contatti terremoto"/>
-    <link rel="canonical" href="https://terremotocentroitalia.herokuapp.com/segnalazioni/contatti"/>
+    <link rel="canonical" href="https://terremoto.francescopinzauti.com/contatti"/>
     <meta property="og:description" content="Segnala un contatto utile sul territorio."/>
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@terremotocentro">
     <meta name="twitter:creator" content="@terremotocentro">
     <meta name="twitter:title" content="Contatti terremoto">
-    <meta name="twitter:url" content="https://terremotocentroitalia.herokuapp.com/segnalazioni/contatti">
+    <meta name="twitter:url" content="https://terremoto.francescopinzauti.com/contatti">
     <meta name="twitter:description" content="Segnala un contatto utile sul territorio.">
-    <meta name="twitter:image:src" content="https://terremotocentroitalia.herokuapp.com/segnalazioni/images/logo.png">
+    <meta name="twitter:image:src" content="https://terremoto.francescopinzauti.com/images/logo.png">
     <script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.css" />
-    <!--[if lte IE 8]> <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.ie.css" />  <![endif]-->
-    <script src="https://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.js"></script>
-    <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.Default.css" />
-    <!--[if lte IE 8]> <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.Default.ie.css" /> <![endif]-->
-    <script src="https://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.markercluster-src.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=[API-KEY]&libraries=places&language=it&region=IT"></script>
+    <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.css" />
+    <!--[if lte IE 8]> <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.ie.css" />  <![endif]-->
+    <script src="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.js"></script>
+
+    <!-- MarkerCluster https://github.com/danzel/Leaflet.markercluster -->
+    <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.css" />
+    <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.Default.css" />
+    <!--[if lte IE 8]> <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.Default.ie.css" /> <![endif]-->
+    <script src="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.markercluster-src.js"></script>
+
+    <script src="src/leaflet-search2.js"></script>
+    <link rel="stylesheet" href="src/leaflet-search.css" />
+    <!-- jQuery 1.8.3: http://jquery.com/ -->
+    <script src="http://joker-x.github.io/Leaflet.geoCSV/lib/jquery.js"></script>
+
+    <style>
+    .search-input {
+     font-family:Courier
+    }
+    .search-input,
+    .leaflet-control-search {
+     max-width:400px;
+    }
+    #map {
+       width: 100%;
+       height: 20rem;
+       margin-bottom: 20px;
+   }
+    </style>
 </head>
 <body>
 <main>
     <form class="terremoto" id="contatti" enctype="multipart/form-data">
         <h3>Contatti terremoto</h3>
-        <h4><a href="./">Fai un'altra segnalazione</a></h4>
+        <h4><a href="/">Fai un'altra segnalazione</a></h4>
         <input placeholder="Nome contatto (campo obbligatorio)" id="nome" name="nome" type="text" required autofocus>
         <input placeholder="Telefono" id="tel" name="tel" type="tel" required>
         <input placeholder="E-mail" id="email" name="email" type="email">
         <textarea placeholder="In cosa può essere utile?" id="descrizione" name="descrizione"></textarea>
-        <a class="link" href="#!" onclick="Cancella()">Cancella indirizzo</a>
-        <input placeholder="Indirizzo" type="text" id="us3-address" name="indirizzo" readonly>
         <div id="map"></div>
+        <input placeholder="Indirizzo" type="text" id="us3-address" name="indirizzo" disabled="disabled">
         <input type="hidden" id="us3-lat" name="lat">
         <input type="hidden" id="us3-lon" name="lon">
         <input placeholder="Link (es: https://www.google.it)" id="link" name="link" type="url">
-        <a class="link" href="http://terremotocentroitalia.info/legal_segnalazioni/" target="_blank">Leggi l'informativa trattamento dati personali</a>
         <button type="submit">Inserisci Contatto</button>
         <p id="result"><img id="gif" src="images/loader.gif"></p>
     </form>
 </main>
 <script>
-
-    var map = L.map('map', {
+var marker = L.marker();
+       var map = L.map('map', {
         revealOSMControl: true,
         revealOSMControlOptions: {
             queryTemplate: '[out:json];(node(around:{radius},{lat},{lng})[name];way(around:{radius},{lat},{lng})[name][highway];);out body qt 1;'
@@ -69,47 +90,58 @@
         zoomControl: true
     }).setView([42.6297405,13.2896061], 16);
 
-    var osm=L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a> powered by @piersoft'}).addTo(map);
+    var osm=L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a> powered by @piersoft'}).addTo(map);
     var esi = L.tileLayer.wms("http://mapwarper.net/maps/wms/15512?request=GetCapabilities&service=WMS&version=1.1.1?", {
-        layers: 'rv1',
-        format: 'image/jpeg',attribution: '<a href="http://mapwarper.net/maps/15512#Preview_Map_tab" target="_blank">MapWraper with image uploaded by Napo from ESI<b>after</b> the earthquake</a> | <a href="http://openstreetmap.org">OSM</a> powered by @piersoft'});
-    var realvista = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
-        layers: 'rv1',
-        format: 'image/jpeg',attribution: '<a href="http://www.realvista.it/website/Joomla/" target="_blank">RealVista &copy; CC-BY Tiles</a> | <a href="http://openstreetmap.org">OSM</a> contr.s'
+       layers: 'rv1',
+       format: 'image/jpeg',attribution: '<a href="http://mapwarper.net/maps/15512#Preview_Map_tab" target="_blank">MapWraper with image uploaded by Napo from ESI<b>after</b> the earthquake</a> | <a href="http://openstreetmap.org">OSM</a> powered by @piersoft'});
+
+ map.addControl( new L.Control.Search({
+  url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+  jsonpParam: 'json_callback',
+  propertyName: 'display_name',
+  propertyLoc: ['lat','lon'],
+  circleLocation: true,
+  markerLocation: true,
+  autoType: false,
+  autoCollapse: false,
+  minLength: 2,
+  zoom:18
+}) );
+map.on('move', function(event) {
+  var marker = event.target;
+  var position = map.getCenter();
+  var addr='http://nominatim.openstreetmap.org/reverse?format=json&email=piersoft2@gmail.com&lat='+position.lat+'&lon=' + position.lng+'&zoom=18&addressdetails=1';
+  marker = L.marker([position],16);
+//  addr_search(position.lat,position.lng);
+  $.getJSON(addr, function(data) {
+    var indirizzo=data.display_name;
+  document.getElementById("us3-address").value = indirizzo;
+  document.getElementById("us3-lat").value = position.lat;
+  document.getElementById("us3-lon").value = position.lng;
+  console.log(position);
+      //  map.setView([position.lat,position.lng],16, {animate: true});
+
     });
+  });
+var realvista = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
+layers: 'rv1',
+format: 'image/jpeg',attribution: '<a href="http://www.realvista.it/website/Joomla/" target="_blank">RealVista &copy; CC-BY Tiles</a> | <a href="http://openstreetmap.org">OSM</a> contr.s'
+});
 
 
-    myIcon = L.icon({
-        iconUrl: 'pinverde.png',
-        iconSize: [32,32]
-    });
+myIcon = L.icon({
+iconUrl: 'pinverde.png',
+iconSize: [32,32]
+});
 
+var layerControl = new L.Control.Layers({
+'OSM Humanitarian': osm,
+'Satellite pre terremoto': realvista,
+'Satellite post terremoto': esi
+}, null, {position: 'topright'});
 
-    var marker = L.marker([42.6297405,13.2896061],
-            {draggable: true, icon:myIcon}   );
-    marker.on('dragend', function(event){
-        var marker = event.target;
-        var position = marker.getLatLng();
-        var addr='https://nominatim.openstreetmap.org/reverse?format=json&email=piersoft2@gmail.com&lat='+position.lat+'&lon=' + position.lng+'&zoom=18&addressdetails=1';
-
-        //  addr_search(position.lat,position.lng);
-        $.getJSON(addr, function(data) {
-            document.getElementById("us3-address").value = data.display_name;
-            document.getElementById("us3-lat").value = position.lat;
-            document.getElementById("us3-lon").value = position.lng;
-        });
-    });
-    map.addLayer(marker);
-
-
-    var layerControl = new L.Control.Layers({
-        'OSM Humanitarian': osm,
-        'Satellite pre terremoto': realvista,
-        'Satellite post terremoto': esi
-    }, null, {position: 'topright'});
-
-    layerControl.addTo(map);
+layerControl.addTo(map);
 </script>
-<script src="js/script.js" type="text/javascript"></script>
+
 </body>
 </html>
