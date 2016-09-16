@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.Default.css" />
     <!--[if lte IE 8]> <link rel="stylesheet" href="https://joker-x.github.io/Leaflet.geoCSV/lib/MarkerCluster.Default.ie.css" /> <![endif]-->
     <script src="https://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.markercluster-src.js"></script>
+    <link rel="stylesheet" href="/css/Control.Geocoder.css" />
+    <script src="/js/Control.Geocoder.js"></script>
 </head>
 <body>
 <main>
@@ -110,6 +112,29 @@
     }, null, {position: 'topright'});
 
     layerControl.addTo(map);
+
+var geocoder = L.Control.geocoder({collapsed:false,placeholder:"Cerca...",
+        defaultMarkGeocode: false, geocodingQueryParams: { countrycodes: "it" },
+    })
+    .on('markgeocode', function(e) {
+        var latlon=e.geocode.center;
+        marker.setLatLng(latlon);
+        map.setView([latlon.lat,latlon.lng], 16);
+
+        document.getElementById("us3-address").value = e.geocode.name;
+        document.getElementById("us3-lat").value = latlon.lat;
+        document.getElementById("us3-lon").value = latlon.lng;
+        revgeocoder = L.Control.Geocoder.nominatim({collapsed:false,placeholder:"Cerca...",
+                defaultMarkGeocode: false, geocodingQueryParams: { countrycodes: "it" },
+        })
+        revgeocoder.reverse(latlon, map.options.crs.scale(map.getZoom()), function(results) {
+				var r = results[0];
+				if (r) {
+                                        document.getElementById("us3-address").value = r.name;
+				}
+			})
+    })
+    .addTo(map);
 </script>
 <script src="js/script.js" type="text/javascript"></script>
 </body>
