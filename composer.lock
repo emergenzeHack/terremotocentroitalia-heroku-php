@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8b2f28b5700793f4eb3d108359f9a9a1",
-    "content-hash": "a426533c21c43cacf7979765d1e56afc",
+    "hash": "b5fb19e38aeac8b03f89f22423f4333b",
+    "content-hash": "867681b40a84b5ecebcdfb3203ec093d",
     "packages": [
         {
             "name": "composer/installers",
@@ -202,6 +202,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/ssl-insecure-content-fixer/"
+        },
+        {
+            "name": "wpackagist-plugin/telegram-bot",
+            "version": "1.7.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/telegram-bot/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/telegram-bot.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/telegram-bot/"
         }
     ],
     "packages-dev": [],

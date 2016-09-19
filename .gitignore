@@ -3,3 +3,4 @@ segnalazioni/.idea/
 # Mantenuto con compose.json
 wordpress/wp-content/plugins/sendgrid-email-delivery-simplified/
 wordpress/wp-content/plugins/ssl-insecure-content-fixer/
+wordpress/wp-content/plugins/telegram-bot/

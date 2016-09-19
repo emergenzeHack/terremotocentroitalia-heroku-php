@@ -11,7 +11,8 @@
         "symfony/yaml": "*",
 
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
-        "wpackagist-plugin/ssl-insecure-content-fixer": "~2"
+        "wpackagist-plugin/ssl-insecure-content-fixer": "~2",
+        "wpackagist-plugin/telegram-bot": "1.7.1"
     },
     "extra": {
         "installer-paths": {
