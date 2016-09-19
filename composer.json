@@ -6,6 +6,7 @@
         }
     ],
     "require": {
+        "hhvm": "*",
         "ext-mbstring": "*",
         "symfony/yaml": "*",
 
