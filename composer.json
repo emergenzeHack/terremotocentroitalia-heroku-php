@@ -10,7 +10,8 @@
         "ext-mbstring": "*",
         "symfony/yaml": "*",
 
-        "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1"
+        "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
+        "wpackagist-plugin/ssl-insecure-content-fixer": "~2"
     },
     "extra": {
         "installer-paths": {
