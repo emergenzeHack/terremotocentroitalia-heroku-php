@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-hhvm-apache2 -I hhvm_custom.ini
+web: vendor/bin/heroku-hhvm-nginx -C nginx_app.conf -I hhvm_custom.ini
