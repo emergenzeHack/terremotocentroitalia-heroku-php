@@ -10,14 +10,21 @@
         "ext-mbstring": "*",
         "symfony/yaml": "*",
 
+        "johnpbloch/wordpress": "*",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
         "wpackagist-plugin/ssl-insecure-content-fixer": "~2",
         "wpackagist-plugin/telegram-bot": "1.7.1"
     },
     "extra": {
+        "wordpress-install-dir": "vendor/wordpress",
         "installer-paths": {
             "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
             "wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "rsync -a vendor/wordpress/ wordpress/"
+        ]
     }
 }

@@ -1,6 +1,7 @@
 segnalazioni/.idea/
 
 # Mantenuto con compose.json
-wordpress/wp-content/plugins/sendgrid-email-delivery-simplified/
-wordpress/wp-content/plugins/ssl-insecure-content-fixer/
-wordpress/wp-content/plugins/telegram-bot/
+/wordpress/
+!/wordpress/wp-config.php
+!/wordpress/wp-content/plugins/terremotocentroitalia-bot-telegram/
+/vendor/
