@@ -24,7 +24,8 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "rsync -a vendor/wordpress/ wordpress/"
+            "rsync -a vendor/wordpress/ wordpress/",
+            "patch -N wordpress/wp-content/plugins/telegram-bot/telegram-bot.php 0001-Fix-management-of-image-upload-directory.patch"
         ]
     }
 }

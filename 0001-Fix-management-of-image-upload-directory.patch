@@ -1,0 +1,32 @@
+From b452648cedb27f4d7d429b3290168557be898654 Mon Sep 17 00:00:00 2001
+From: Timothy Redaelli <timothy.redaelli@gmail.com>
+Date: Wed, 28 Sep 2016 12:42:00 +0200
+Subject: [PATCH] Fix management of image upload directory
+
+---
+ telegram-bot.php | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/telegram-bot.php b/telegram-bot.php
+index f6c95d6e..e5cd3d2e 100644
+--- a/telegram-bot.php
++++ b/telegram-bot.php
+@@ -428,13 +428,10 @@ function telegram_download_file( $telegram_user_id, $file_id, $directory = '' )
+ 			return false;
+ 		} else {
+ 			telegram_log('', $telegram_user_id, 'Directory created for incoming image');
+-			return false;
+ 		}
+-	} else {
+-		telegram_log('', $telegram_user_id, 'Received and saved image');
+-		return get_site_url() . '/wp-content/uploads/telegram-bot/'.$plugin_post_id.'/'.$file_name;
+ 	}
+-
++	telegram_log('', $telegram_user_id, 'Received and saved image');
++	return get_site_url() . '/wp-content/uploads/telegram-bot/'.$plugin_post_id.'/'.$file_name;
+ }
+ 
+ ?>
+-- 
+2.10.0
+
