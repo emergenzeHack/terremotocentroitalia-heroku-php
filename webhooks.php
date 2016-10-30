@@ -52,8 +52,8 @@
 		exec_log('bash scripts/csvupdate.sh');
 	// Scarico le issue da GitHub e le converto in CSV
 	} elseif ($type == 'issue') {
-		exec_log('python2 scripts/github2CSV.py _data/issues.csv _data/issuesjson.json && sed -i \'s/\r$//g\' _data/issues.csv') or exit(0);
-		exec_log('git add _data/issues.csv _data/issuesjson.json');
+		exec_log('python2 scripts/github2CSV.py _data/issues.csv _data/issuesjson.json _data/issues.geojson && sed -i \'s/\r$//g\' _data/issues.csv') or exit(0);
+		exec_log('git add _data/issues.csv _data/issuesjson.json _data/issues.geojson');
 		exec_log('git commit -m "auto issues CSV update ' . date('c') . '"');
 		exec_log('git push origin master');
 	// Sincronizzo GitLab con GitHub
