@@ -182,6 +182,32 @@ $(function () {
         })
     })
 });
+$(function () {
+    var a = $("#bufale")
+        , b = $("#result");
+    $(a).submit(function (c) {
+        $("#gif").css("visibility", "visible");
+        c.preventDefault();
+        var d = new FormData($(this)[0]);
+        $.ajax({
+            type: "POST",
+            url: "php/bufale.php",
+            data: d,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function (a) {
+            $("#gif").css("visibility", "hidden");
+            $(b).text("Segnalazione inserita!");
+            $("#titolo").val("");
+            $("#descrizione").val("");
+            $("#link").val("")
+        }).fail(function (a) {
+            $("#gif").css("visibility", "hidden");
+            "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")
+        })
+    })
+});
 $('.terremoto').on('keyup keypress', function (e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) {
