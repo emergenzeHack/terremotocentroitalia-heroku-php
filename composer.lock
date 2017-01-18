@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "082bd988b0397c10dac88f211c6087b1",
-    "content-hash": "1b7f73eda9b11c156e01cacf883ad574",
+    "content-hash": "a3cc93d082760cb160f18f24767d6fe9",
     "packages": [
         {
             "name": "composer/installers",
@@ -112,20 +111,20 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-08-13 20:53:52"
+            "time": "2016-08-13T20:53:52+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.6.1",
+            "version": "4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3"
+                "reference": "6a6a20e568db37fb501fe9deb75ed2a8600d1b30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
-                "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/6a6a20e568db37fb501fe9deb75ed2a8600d1b30",
+                "reference": "6a6a20e568db37fb501fe9deb75ed2a8600d1b30",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +148,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2016-09-07 15:01:47"
+            "time": "2017-01-11T17:46:47+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -197,29 +196,35 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-06-11 15:15:30"
+            "time": "2015-06-11T15:15:30+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.1.4",
+            "version": "v3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d"
+                "reference": "50eadbd7926e31842893c957eca362b21592a97d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f291ed25eb1435bddbe8a96caaef16469c2a092d",
-                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/50eadbd7926e31842893c957eca362b21592a97d",
+                "reference": "50eadbd7926e31842893c957eca362b21592a97d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.9"
             },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -246,11 +251,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-02 02:12:52"
+            "time": "2017-01-03T13:51:32+00:00"
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.10.1",
+            "version": "1.10.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
@@ -270,15 +275,15 @@
         },
         {
             "name": "wpackagist-plugin/ssl-insecure-content-fixer",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ssl-insecure-content-fixer/",
-                "reference": "tags/2.2.0"
+                "reference": "tags/2.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ssl-insecure-content-fixer.2.2.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/ssl-insecure-content-fixer.2.2.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -290,7 +295,7 @@
         },
         {
             "name": "wpackagist-plugin/telegram-bot",
-            "version": "1.7.1",
+            "version": "2.0.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/telegram-bot/",

@@ -13,7 +13,7 @@
         "johnpbloch/wordpress": "*",
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
         "wpackagist-plugin/ssl-insecure-content-fixer": "~2",
-        "wpackagist-plugin/telegram-bot": "1.7.1"
+        "wpackagist-plugin/telegram-bot": "*"
     },
     "extra": {
         "wordpress-install-dir": "vendor/wordpress",
