@@ -31,11 +31,16 @@
 
 	$i = 0;
 	// Poor man™ locking (funziona solo se hai un worker, come nel caso di Heroku free)
+	$id = $_SERVER['HTTP_X_REQUEST_ID'];
 	while (!@mkdir("/tmp/terremotocentro.lock.$type")) {
 		sleep(1);
 		$i++;
 		if ($i && ($i % 5) == 0)
-			error_log("$type: Locked for $i seconds");
+			error_log("$type ($id): Locked for $i seconds");
+#		if ($i >= 600) {
+#			error_log("$type ($id): Stale lock detected after $i seconds.");
+#			rmdir("/tmp/terremotocentro.lock.$type");
+#		}
 	}
 	register_shutdown_function('cleanup', $type);
 
