@@ -1,4 +1,7 @@
 <?php
+	// Siamo in emergenza: andiamo di polling.
+	exit(0);
+
 	define('GITHUB_REPO', 'https://' . getenv('GITHUB_USERNAME') . ':' . getenv('GITHUB_PASSWORD') . '@github.com/emergenzeHack/terremotocentro');
 	define('GITLAB_REPO', 'https://' . getenv('GITLAB_AUTH') . '@gitlab.com/emergenzeHack/terremotocentro');
 
