@@ -36,4 +36,16 @@ function carica_file($file) {
     }
     return $url;
 }
-?>
+function carica_curriculum($file) {
+    $filename = $file["tmp_name"];
+    $size = $file["size"];
+    if (empty($filename)) {
+        return "";
+    }
+    if ($size > 3000000) {
+        http_response_code(400);
+        die("File troppo pesante!");
+    }
+
+    //Dove carichiamo il curriculum?
+}
