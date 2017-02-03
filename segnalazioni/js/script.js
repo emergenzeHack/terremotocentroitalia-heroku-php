@@ -62,6 +62,39 @@ $(function () {
         })
     }),
     $(function () {
+        var a = $("#lavoro")
+            , b = $("#result");
+        $(a).submit(function (c) {
+            $("#gif").css("visibility", "visible");
+            c.preventDefault();
+            var d = new FormData($(this)[0]);
+            $.ajax({
+                type: "POST",
+                url: "php/lavoro.php",
+                data: d,
+                cache: false,
+                contentType: false,
+                processData: false
+            }).done(function (a) {
+                $("#gif").css("visibility", "hidden");
+                $(b).text("Donazione inserita!");
+                $("#tel").val("");
+                $("#email").val("");
+                $("#co").val("");
+                $("#cosa").val("");
+                $("#descrizione").val("");
+                $("#us3-address").val("");
+                $("#us3-lat").val("");
+                $("#us3-lon").val("");
+                $("#link").val("");
+                $("#image").val("")
+            }).fail(function (a) {
+                $("#gif").css("visibility", "hidden");
+                "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")
+            })
+        })
+    }),
+    $(function () {
         var a = $("#fabbisogni")
             , b = $("#result");
         $(a).submit(function (c) {
@@ -208,6 +241,7 @@ $(function () {
         })
     })
 });
+
 $('.terremoto').on('keyup keypress', function (e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) {
