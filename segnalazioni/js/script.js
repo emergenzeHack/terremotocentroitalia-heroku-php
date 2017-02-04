@@ -78,6 +78,7 @@ $(function () {
             }).done(function (a) {
                 $("#gif").css("visibility", "hidden");
                 $(b).text("Donazione inserita!");
+                $("#nom").val("");
                 $("#tel").val("");
                 $("#email").val("");
                 $("#co").val("");
@@ -86,8 +87,7 @@ $(function () {
                 $("#us3-address").val("");
                 $("#us3-lat").val("");
                 $("#us3-lon").val("");
-                $("#link").val("");
-                $("#image").val("")
+                $("#link").val("")
             }).fail(function (a) {
                 $("#gif").css("visibility", "hidden");
                 "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")

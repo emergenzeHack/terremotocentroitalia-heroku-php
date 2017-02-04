@@ -2,14 +2,16 @@
 require_once(getenv('HOME') . '/vendor/autoload.php');
 require_once('libreria.php');
 use Symfony\Component\Yaml\Yaml;
+
 if (in_array('curl', get_loaded_extensions())) {
     //error_reporting(0);
     set_time_limit(120);
     ini_set('max_execution_time', 120);
     mb_internal_encoding("UTF-8");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nom = strip_tags(trim($_POST["nom"]));
         $tel = strip_tags(trim($_POST["tel"]));
-        $email = strip_tags(filter_var(trim($_POST["email"]),FILTER_SANITIZE_EMAIL));
+        $email = strip_tags(filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL));
         $cosa = strip_tags(trim($_POST["cosa"]));
         $co = strip_tags(trim($_POST["co"]));
         $descrizione = strip_tags(trim($_POST["descrizione"]));
@@ -29,16 +31,17 @@ if (in_array('curl', get_loaded_extensions())) {
         $immagine = carica_file($_FILES["image"]);
 
         $body = array(
-          'tel'         => $tel,
-          'email'       => $email,
-          'cosa'        => $cosa,
-          'descrizione' => $descrizione,
-          'indirizzo'   => $indirizzo,
-          'lat'         => $lat,
-          'lon'         => $lon,
-          'link'        => $link,
-          'immagine'    => $immagine,
-          'data'        => $date
+            'nom' => $nom,
+            'tel' => $tel,
+            'email' => $email,
+            'cosa' => $cosa,
+            'descrizione' => $descrizione,
+            'indirizzo' => $indirizzo,
+            'lat' => $lat,
+            'lon' => $lon,
+            'link' => $link,
+            'immagine' => $immagine,
+            'data' => $date
         );
         $label = 'Non definito';
         if ($co == 'offro') {
@@ -75,8 +78,8 @@ if (in_array('curl', get_loaded_extensions())) {
             if (!empty($email)) {
                 $to = $email;
                 $subject = 'Grazie per averci contattato';
-                $headers = 'From: Terremoto Centro Italia <noreply@terremotocentroitalia.info>' . "\r\n" ;
-                $headers .='X-Mailer: PHP/' . phpversion();
+                $headers = 'From: Terremoto Centro Italia <noreply@terremotocentroitalia.info>' . "\r\n";
+                $headers .= 'X-Mailer: PHP/' . phpversion();
                 $headers .= "MIME-Version: 1.0 \r\n";
                 $headers .= "Content-type: text/html; charset=utf-8 \r\n";
                 $message = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional //EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><!--[if IE]><html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ie\"><![endif]--><!--[if !IE]><!--><html style=\"margin: 0;padding: 0;\" xmlns=\"http://www.w3.org/1999/xhtml\"><!--<![endif]--><head>
