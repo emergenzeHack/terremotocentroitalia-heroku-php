@@ -77,7 +77,7 @@ $(function () {
                 processData: false
             }).done(function (a) {
                 $("#gif").css("visibility", "hidden");
-                $(b).text("Donazione inserita!");
+                $(b).text("Annuncio inserito!");
                 $("#nom").val("");
                 $("#tel").val("");
                 $("#email").val("");
