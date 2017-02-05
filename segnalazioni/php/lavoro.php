@@ -4,7 +4,6 @@ require_once('libreria.php');
 use Symfony\Component\Yaml\Yaml;
 
 if (in_array('curl', get_loaded_extensions())) {
-    //error_reporting(0);
     set_time_limit(120);
     ini_set('max_execution_time', 120);
     mb_internal_encoding("UTF-8");
