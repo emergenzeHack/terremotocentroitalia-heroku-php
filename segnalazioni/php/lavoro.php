@@ -20,7 +20,7 @@ if (in_array('curl', get_loaded_extensions())) {
         $lat = strip_tags(trim($_POST["lat"]));
         $lon = strip_tags(trim($_POST["lon"]));
         $date = date('d/m/Y');
-        if (empty($cosa) || (empty($co))) {
+        if (empty($cosa) || (empty($co) || (empty($indirizzo))) {
             http_response_code(400);
             echo "Compila tutti i campi!";
             exit;
