@@ -38,7 +38,7 @@ if (in_array('curl', get_loaded_extensions())) {
         );
         $yaml = Yaml::dump($body);
         $data = array(
-            "title" => $cosa,
+            "title" => $evento,
             "body" => "<pre><yamldata>$yaml</yamldata></pre>",
             "labels" => [
                 "Donazioni",
