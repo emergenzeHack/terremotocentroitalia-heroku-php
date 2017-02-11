@@ -24,10 +24,7 @@ if (in_array('curl', get_loaded_extensions())) {
             echo "Compila tutti i campi!";
             exit;
         }
-        $ora = date('H-i-s');
-        $file = $_FILES["image"]["tmp_name"];
-
-        $body = array(
+            $body = array(
             'titolo evento' => $evento,
             'data evento' => $datae,
             'promotore' => $promotore,
