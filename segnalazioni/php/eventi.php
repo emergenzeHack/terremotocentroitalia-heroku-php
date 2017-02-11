@@ -41,7 +41,7 @@ if (in_array('curl', get_loaded_extensions())) {
             "title" => $evento,
             "body" => "<pre><yamldata>$yaml</yamldata></pre>",
             "labels" => [
-                "Donazioni",
+                "Eventi",
                 "Form"
             ]
         );
