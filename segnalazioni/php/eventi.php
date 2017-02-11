@@ -24,11 +24,11 @@ if (in_array('curl', get_loaded_extensions())) {
             echo "Compila tutti i campi!";
             exit;
         }
-            $body = array(
+        $body = array(
             'titolo evento' => $evento,
             'data evento' => $datae,
+            'ora evento' => $ora,
             'promotore' => $promotore,
-            'ora' => $ora,
             'descrizione' => $descrizione,
             'indirizzo' => $indirizzo,
             'lat' => $lat,
