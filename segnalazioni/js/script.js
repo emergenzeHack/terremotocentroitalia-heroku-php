@@ -62,6 +62,38 @@ $(function () {
         })
     }),
     $(function () {
+        var a = $("#eventi")
+            , b = $("#result");
+        $(a).submit(function (c) {
+            $("#gif").css("visibility", "visible");
+            c.preventDefault();
+            var d = new FormData($(this)[0]);
+            $.ajax({
+                type: "POST",
+                url: "php/eventi.php",
+                data: d,
+                cache: false,
+                contentType: false,
+                processData: false
+            }).done(function (a) {
+                $("#gif").css("visibility", "hidden");
+                $(b).text("Donazione inserita!");
+                $("#evento").val("");
+                $("#descrizione").val("");
+                $("#us3-address").val("");
+                $("#us3-lat").val("");
+                $("#us3-lon").val("");
+                $("#link").val("");
+                $("#data").val("");
+                $("#promotore").val("");
+                $("#ora").val("")
+            }).fail(function (a) {
+                $("#gif").css("visibility", "hidden");
+                "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")
+            })
+        })
+    }),
+    $(function () {
         var a = $("#lavoro")
             , b = $("#result");
         $(a).submit(function (c) {
