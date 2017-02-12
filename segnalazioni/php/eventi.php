@@ -25,9 +25,9 @@ if (in_array('curl', get_loaded_extensions())) {
             exit;
         }
         $body = array(
-            'titolo evento' => $evento,
-            'data evento' => $datae,
-            'ora evento' => $ora,
+            'titolo_evento' => $evento,
+            'data_evento' => $datae,
+            'ora_evento' => $ora,
             'promotore' => $promotore,
             'descrizione' => $descrizione,
             'indirizzo' => $indirizzo,
