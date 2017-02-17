@@ -10,6 +10,7 @@ if (in_array('curl', get_loaded_extensions())) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $evento = strip_tags(trim($_POST["evento"]));
         $datae = strip_tags(trim($_POST["data"]));
+        $datae = date("d-m-Y", $datae);
         $promotore = strip_tags(trim($_POST["promotore"]));
         $descrizione = strip_tags(trim($_POST["descrizione"]));
         $descrizione = trim(preg_replace('/\s\s+/', ' ', $descrizione));
