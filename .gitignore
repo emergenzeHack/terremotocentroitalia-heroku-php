@@ -5,3 +5,5 @@ segnalazioni/.idea/
 !/wordpress/wp-config.php
 !/wordpress/wp-content/plugins/terremotocentroitalia-bot-telegram/
 /vendor/
+
+.DS_Store
