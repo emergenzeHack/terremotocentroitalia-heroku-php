@@ -39,9 +39,9 @@ if (in_array('curl', get_loaded_extensions())) {
             'data' => $date
         );
         $label = 'Non definito';
-        if ($co == 'ricostruzione pubblica') {
+        if ($co == 'Ricostruzione Pubblica') {
             $label = 'Ricostruzione Pubblica';
-        } else if ($co == 'ricostruzione privata') {
+        } else if ($co == 'Ricostruzione Privata') {
             $label = 'Ricostruzione Privata';
         }
         $yaml = Yaml::dump($body);
