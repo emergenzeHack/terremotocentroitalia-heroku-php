@@ -19,6 +19,8 @@ if (in_array('curl', get_loaded_extensions())) {
         $lat = strip_tags(trim($_POST["lat"]));
         $lon = strip_tags(trim($_POST["lon"]));
         $date = date('d/m/Y');
+        $fonte = strip_tags(trim($_POST["fonte"]));
+        $link = strip_tags(trim($_POST["link"]));
         if (empty($cosa) || (empty($co)) || (empty($indirizzo))) {
             http_response_code(400);
             echo "Compila tutti i campi!";
