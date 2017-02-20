@@ -34,7 +34,9 @@ if (in_array('curl', get_loaded_extensions())) {
             'indirizzo' => $indirizzo,
             'lat' => $lat,
             'lon' => $lon,
-            'data' => $date
+            'data' => $date,
+            'fonte' => $fonte,
+            'link'  => $link
         );
         $label = 'Non definito';
         if ($co == 'pubblica') {

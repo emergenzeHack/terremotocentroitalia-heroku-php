@@ -152,6 +152,8 @@ $(function () {
                 $("#us3-address").val("");
                 $("#us3-lat").val("");
                 $("#us3-lon").val("");
+                $("#fonte").val("");
+                $("#link").val("");
             }).fail(function (a) {
                 $("#gif").css("visibility", "hidden");
                 "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")
