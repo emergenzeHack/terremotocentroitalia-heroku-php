@@ -127,6 +127,39 @@ $(function () {
         })
     }),
     $(function () {
+        var a = $("#ricostruzione")
+            , b = $("#result");
+        $(a).submit(function (c) {
+            $("#gif").css("visibility", "visible");
+            c.preventDefault();
+            var d = new FormData($(this)[0]);
+            $.ajax({
+                type: "POST",
+                url: "php/ricostruzione.php",
+                data: d,
+                cache: false,
+                contentType: false,
+                processData: false
+            }).done(function (a) {
+                $("#gif").css("visibility", "hidden");
+                $(b).text("Annuncio inserito!");
+                $("#nom").val("");
+                $("#tel").val("");
+                $("#email").val("");
+                $("#co").val("");
+                $("#cosa").val("");
+                $("#descrizione").val("");
+                $("#us3-address").val("");
+                $("#us3-lat").val("");
+                $("#us3-lon").val("");
+                $("#link").val("")
+            }).fail(function (a) {
+                $("#gif").css("visibility", "hidden");
+                "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")
+            })
+        })
+    }),
+    $(function () {
         var a = $("#fabbisogni")
             , b = $("#result");
         $(a).submit(function (c) {
