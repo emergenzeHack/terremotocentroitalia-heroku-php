@@ -142,7 +142,7 @@ $(function () {
                 processData: false
             }).done(function (a) {
                 $("#gif").css("visibility", "hidden");
-                $(b).text("Annuncio inserito!");
+                $(b).text("Segnalazione inserita!");
                 $("#nom").val("");
                 $("#tel").val("");
                 $("#email").val("");
@@ -152,7 +152,6 @@ $(function () {
                 $("#us3-address").val("");
                 $("#us3-lat").val("");
                 $("#us3-lon").val("");
-                $("#link").val("")
             }).fail(function (a) {
                 $("#gif").css("visibility", "hidden");
                 "" !== a.responseText ? $(b).text(a.responseText) : $(b).text("Errore")

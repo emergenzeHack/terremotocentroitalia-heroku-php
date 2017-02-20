@@ -16,7 +16,6 @@ if (in_array('curl', get_loaded_extensions())) {
         $descrizione = strip_tags(trim($_POST["descrizione"]));
         $descrizione = trim(preg_replace('/\s\s+/', ' ', $descrizione));
         $indirizzo = strip_tags(trim($_POST["indirizzo"]));
-        $link = strip_tags(trim($_POST["link"]));
         $lat = strip_tags(trim($_POST["lat"]));
         $lon = strip_tags(trim($_POST["lon"]));
         $date = date('d/m/Y');
@@ -35,7 +34,6 @@ if (in_array('curl', get_loaded_extensions())) {
             'indirizzo' => $indirizzo,
             'lat' => $lat,
             'lon' => $lon,
-            'link' => $link,
             'data' => $date
         );
         $label = 'Non definito';
