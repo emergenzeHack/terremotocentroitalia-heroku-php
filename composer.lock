@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
-                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
+                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
                 "shasum": ""
             },
             "require": {
@@ -59,12 +59,16 @@
             "keywords": [
                 "Craft",
                 "Dolibarr",
+                "Eliasis",
                 "Hurad",
                 "ImageCMS",
+                "Kanboard",
                 "MODX Evo",
                 "Mautic",
+                "Maya",
                 "OXID",
                 "Plentymarkets",
+                "Porto",
                 "RadPHP",
                 "SMF",
                 "Thelia",
@@ -87,9 +91,11 @@
                 "fuelphp",
                 "grav",
                 "installer",
+                "itop",
                 "joomla",
                 "kohana",
                 "laravel",
+                "lavalite",
                 "lithium",
                 "magento",
                 "mako",
@@ -104,6 +110,7 @@
                 "roundcube",
                 "shopware",
                 "silverstripe",
+                "sydes",
                 "symfony",
                 "typo3",
                 "wordpress",
@@ -111,24 +118,24 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-08-13T20:53:52+00:00"
+            "time": "2017-04-24T06:37:16+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.7.3",
+            "version": "4.7.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "9f1f8eb6c37d10d73b9d7946c0ab5425a5492a9a"
+                "reference": "ca36dbed576d21681efe92851f411ac2315a0ea5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/9f1f8eb6c37d10d73b9d7946c0ab5425a5492a9a",
-                "reference": "9f1f8eb6c37d10d73b9d7946c0ab5425a5492a9a",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/ca36dbed576d21681efe92851f411ac2315a0ea5",
+                "reference": "ca36dbed576d21681efe92851f411ac2315a0ea5",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "4.7.3",
+                "johnpbloch/wordpress-core": "4.7.4.1",
                 "johnpbloch/wordpress-core-installer": "~0.2",
                 "php": ">=5.3.2"
             },
@@ -150,20 +157,20 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-03-18T04:47:24+00:00"
+            "time": "2017-05-01T23:34:21+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "4.7.3",
+            "version": "4.7.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "21255f593ac7db93892724321f468c276b15aa65"
+                "reference": "637b1c6e997b28bf8767e6c87611f869e12e246e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/21255f593ac7db93892724321f468c276b15aa65",
-                "reference": "21255f593ac7db93892724321f468c276b15aa65",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/637b1c6e997b28bf8767e6c87611f869e12e246e",
+                "reference": "637b1c6e997b28bf8767e6c87611f869e12e246e",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +194,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-03-06T18:43:41+00:00"
+            "time": "2017-05-01T23:28:59+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -239,16 +246,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.2.6",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a"
+                "reference": "acec26fcf7f3031e094e910b94b002fa53d4e4d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/093e416ad096355149e265ea2e4cc1f9ee40ab1a",
-                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/acec26fcf7f3031e094e910b94b002fa53d4e4d6",
+                "reference": "acec26fcf7f3031e094e910b94b002fa53d4e4d6",
                 "shasum": ""
             },
             "require": {
@@ -290,11 +297,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-07T16:47:02+00:00"
+            "time": "2017-05-01T14:55:58+00:00"
         },
         {
             "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.10.7",
+            "version": "1.11.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
@@ -302,7 +309,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip?timestamp=1485343948",
+                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.zip?timestamp=1492673803",
                 "reference": null,
                 "shasum": null
             },
@@ -314,15 +321,15 @@
         },
         {
             "name": "wpackagist-plugin/ssl-insecure-content-fixer",
-            "version": "2.2.3",
+            "version": "2.3.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ssl-insecure-content-fixer/",
-                "reference": "tags/2.2.3"
+                "reference": "tags/2.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ssl-insecure-content-fixer.2.2.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/ssl-insecure-content-fixer.2.3.0.zip",
                 "reference": null,
                 "shasum": null
             },
