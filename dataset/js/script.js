@@ -43,6 +43,7 @@ function back() {
     url.style.display = 'inline';
     url.required = true;
     document.getElementById('text').setAttribute("placeholder", "Richiesta");
+    finish.textContent = '';
 }
 
 document.getElementById('send').addEventListener('click', function () {
