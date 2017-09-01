@@ -9,7 +9,7 @@ class elements
     public $email;
     public $text;
     public $url;
-    public $label = array("Segnalo un dataset");
+    public $label = [];
     public $list = [];
 
     function __construct()
@@ -49,6 +49,7 @@ $data->list = array(
 switch ($data->what) {
     case "send":
         $data->list["URL"] = $data->url;
+        $data->label[0] = "Segnalo un dataset";
         break;
     case "ask":
         $data->label[0] = "Cerco un dataset";

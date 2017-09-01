@@ -1,6 +1,4 @@
-var finish = document.getElementById('success');
-var url = document.getElementById('url');
-var what;
+var finish = document.getElementById('success'), url = document.getElementById('url'), form = document.getElementById('form'), what;
 
 function show(par) {
     document.getElementById('fields').style.display = 'inline';
@@ -21,7 +19,7 @@ function show(par) {
 }
 
 function go() {
-    var data = new FormData(document.getElementById('form'));
+    var data = new FormData(form);
     data.append("what", what);
     var request = new XMLHttpRequest();
     request.open('POST', 'php/script.php', true);
@@ -42,6 +40,7 @@ function back() {
     url.required = true;
     document.getElementById('text').setAttribute("placeholder", "Richiesta");
     finish.textContent = '';
+    form.reset();
 }
 
 document.getElementById('send').addEventListener('click', function () {
@@ -50,4 +49,4 @@ document.getElementById('send').addEventListener('click', function () {
 document.getElementById('ask').addEventListener('click', function () {
     show('ask')
 });
-document.getElementById('form').addEventListener('submit', go);
+form.addEventListener('submit', go);
