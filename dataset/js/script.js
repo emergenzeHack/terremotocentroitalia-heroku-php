@@ -1,9 +1,10 @@
-var finish = document.getElementById('success'), url = document.getElementById('url'), form = document.getElementById('form'), what;
+var finish = document.getElementById('success'), url = document.getElementById('url'),
+    form = document.getElementById('form'), subtitle = document.getElementById('subtitle'), what;
 
 function show(par) {
     document.getElementById('fields').style.display = 'inline';
     document.getElementById('choose').style.display = 'none';
-    document.getElementById('subtitle').innerHTML = '<a href="javascript:back()">Torna Indietro</a>';
+    subtitle.innerHTML = '<a href="javascript:back()">Torna Indietro</a>';
     what = par;
     switch (par) {
         case 'send':
@@ -13,6 +14,7 @@ function show(par) {
         case 'ask':
             url.style.display = 'none';
             url.required = false;
+            document.getElementById('default').textContent = 'Tipo di richiesta';
             break;
     }
 
@@ -41,6 +43,8 @@ function back() {
     document.getElementById('text').setAttribute("placeholder", "Richiesta");
     finish.textContent = '';
     form.reset();
+    subtitle.textContent = 'Scegli un\'opzione:';
+    document.getElementById('default').textContent = 'Tipo di segnalazione';
 }
 
 document.getElementById('send').addEventListener('click', function () {
