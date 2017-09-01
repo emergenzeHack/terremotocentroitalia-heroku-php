@@ -18,7 +18,7 @@ class elements
         $this->name = htmlspecialchars(trim($_POST["name"]));
         $this->email = htmlspecialchars(trim($_POST["email"]));
         $this->text = htmlspecialchars(trim($_POST["text"]));
-        $this->label[1] = htmlspecialchars(trim($_POST["label"]));
+        $this->label[0] = htmlspecialchars(trim($_POST["label"]));
         $this->url = isset($_POST["url"]) ? htmlspecialchars(trim($_POST["url"])) : NULL;
     }
 
@@ -29,7 +29,7 @@ class elements
 
     function check()
     {
-        if (empty($this->what) || empty($this->name) || empty($this->email) || empty($this->text || empty($this->label[1]))) {
+        if (empty($this->what) || empty($this->name) || empty($this->email) || empty($this->text || empty($this->label[0]))) {
             $this->error();
             exit;
         }
@@ -49,10 +49,10 @@ $data->list = array(
 switch ($data->what) {
     case "send":
         $data->list["URL"] = $data->url;
-        $data->label[0] = "Segnalo un dataset";
+        $data->label[1] = "Segnalo un dataset";
         break;
     case "ask":
-        $data->label[0] = "Cerco un dataset";
+        $data->label[1] = "Cerco un dataset";
         break;
     default:
         $data->error();

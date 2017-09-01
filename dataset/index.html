@@ -25,7 +25,7 @@
         <h3>Dataset</h3>
         <h4 id="subtitle">Scegli un'opzione:</h4>
         <div id="choose">
-            <button id="send">Invia dati</button>
+            <button id="send">Segnala dati</button>
             <button id="ask">Richiedi dati</button>
         </div>
         <form id="form" onsubmit="return false">
@@ -34,7 +34,7 @@
                 <input placeholder="E-mail" type="email" name="email" required>
                 <textarea placeholder="Richiesta" id="text" name="text" required></textarea>
                 <input placeholder="URL dataset segnalato" type="url" id="url" name="url" required>
-                <select name="label" id="label" required>
+                <select name="label" id="label" title="label" required>
                     <option id="default" value="">Tipo di segnalazione</option>
                     <option value="emergenza">Emergenza</option>
                     <option value="ricostruzione-pubblica">Ricostruzione: pubblica</option>
