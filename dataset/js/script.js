@@ -1,6 +1,6 @@
 var finish = document.getElementById('success');
 var url = document.getElementById('url');
-var what, label;
+var what;
 
 function show(par) {
     document.getElementById('fields').style.display = 'inline';
@@ -22,9 +22,7 @@ function show(par) {
 
 function go() {
     var data = new FormData(document.getElementById('form'));
-    label = window.location.hash.replace('#', '');
     data.append("what", what);
-    data.append("label", label);
     var request = new XMLHttpRequest();
     request.open('POST', 'php/script.php', true);
     request.onload = function () {

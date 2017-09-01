@@ -34,6 +34,15 @@
                 <input placeholder="E-mail" type="email" name="email" required>
                 <textarea placeholder="Richiesta" id="text" name="text" required></textarea>
                 <input placeholder="URL dataset segnalato" type="url" id="url" name="url" required>
+                <select name="label" title="ciao" required>
+                    <option value="">Tipo di segnalazione</option>
+                    <option value="emergenza">Emergenza</option>
+                    <option value="ricostruzione-pubblica">Ricostruzione: pubblica</option>
+                    <option value="ricostruzione-privata">Ricostruzione: privata</option>
+                    <option value="sviluppo-economico">Sviluppo economico</option>
+                    <option value="fonti-finanziarie">Fonti finanziarie</option>
+                    <option value="normativa">Normativa</option>
+                </select>
                 <button>Invia</button>
             </fieldset>
             <p id="success"></p>
