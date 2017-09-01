@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Invia o raccogli dati riguardanti terremotocentroitalia.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#4caf50">
+    <meta name="theme-color" content="#4caf50">
+    <meta property="og:title" content="Dataset Terremoto"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://terremotocentroitalia.herokuapp.com/dataset/"/>
+    <meta property="og:image" content="https://terremotocentroitalia.herokuapp.com/dataset/android-chrome-512x512.png"/>
+    <meta property="og:site_name" content="Dataset Terremoto"/>
+    <meta property="og:description" content="Invia o raccogli dati riguardanti terremotocentroitalia."/>
+</head>
+<body>
+<main>
+    <section>
+        <h3>Dataset</h3>
+        <h4 id="subtitle">Scegli un'opzione:</h4>
+        <div id="choose">
+            <button id="send">Invia dati</button>
+            <button id="ask">Richiedi dati</button>
+        </div>
+        <form id="form" onsubmit="return false">
+            <fieldset id="fields">
+                <input placeholder="Nome" name="name" autofocus required>
+                <input placeholder="E-mail" type="email" name="email" required>
+                <textarea placeholder="Richiesta" id="text" name="text" required></textarea>
+                <input placeholder="URL dataset segnalato" type="url" id="url" name="url" required>
+                <button>Invia</button>
+            </fieldset>
+            <p id="success"></p>
+            <p>Maggiori informazioni su <a href="http://terremotocentroitalia.info" target="_blank"
+                                           title="Terremoto Centro Italia">Terremoto Centro Italia</a></p>
+        </form>
+    </section>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>
+
